@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.makaixuan.dao.BookMapper">
+    <select id="selBooks" parameterType="java.lang.Integer">
+
+    </select>
+    <select id="selBook" >
+
+    </select>
+    <update id="updBook" >
+
+    </update>
+    <delete id="delBookById" >
+
+    </delete>
+    <insert id="addBook" parameterType="com.makaixuan.pojo.Books">
+
+    </insert>
+</mapper>
