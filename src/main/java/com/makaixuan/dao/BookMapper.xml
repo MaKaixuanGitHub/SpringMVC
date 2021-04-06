@@ -2,10 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.makaixuan.dao.BookMapper">
-    <select id="selBooks" parameterType="java.lang.Integer">
-
+    <select id="selBooks" resultType="com.makaixuan.pojo.Books">
+        select bookID as bookID,
+               bookName as bookName,
+               bookCounts as bookCounts,
+               detail as detail
+        from Books
     </select>
-    <select id="selBook" >
+    <select id="selBook" parameterType="java.lang.Integer">
 
     </select>
     <update id="updBook" >
@@ -15,6 +19,13 @@
 
     </delete>
     <insert id="addBook" parameterType="com.makaixuan.pojo.Books">
-
+       insert into Books(
+             bookName,
+             bookCounts,
+             detail)
+        values (
+             #{bookName},
+             #{bookCounts},
+             #{detail})
     </insert>
 </mapper>
