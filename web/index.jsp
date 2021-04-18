@@ -12,5 +12,6 @@
   </head>
   <body>
   <h3><a href="${pageContext.request.contextPath}/book/books">进入书记展示页面</a></h3>
+  <h3>SpringMVC Intercepter Test</h3>
   </body>
 </html>
