@@ -22,5 +22,12 @@
         <property name="prefix" value="/WEB-INF/jsp"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    <!-- 5.拦截器配置 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.makaixuan.filter.MyIntercepter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
