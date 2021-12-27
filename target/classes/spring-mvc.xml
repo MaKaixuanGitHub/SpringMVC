@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
-       xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-                    http://www.springframework.org/schema/beans/spring-beans.xsd
-                    http://www.springframework.org/schema/mvc
-                    http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       xsi:schemaLocation="
                     http://www.springframework.org/schema/context
-                    http://www.springframework.org/schema/context/context.xsd">
+                    http://www.springframework.org/schema/context/spring-context.xsd
+                    http://www.springframework.org/schema/mvc
+                    http://www.springframework.org/schema/context/spring-mvc.xsd
+                    http://www.springframework.org/schema/beans
+                    http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 1.注解驱动 -->
     <mvc:annotation-driven></mvc:annotation-driven>
@@ -21,5 +22,12 @@
         <property name="prefix" value="/WEB-INF/jsp"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+    <!-- 5.拦截器配置 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.makaixuan.filter.MyIntercepter"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>
