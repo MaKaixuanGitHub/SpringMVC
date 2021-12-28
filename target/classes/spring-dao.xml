@@ -9,7 +9,7 @@
                     http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <!-- 1.关联数据库配置文件 -->
-    <context:property-placeholder location="database.properties"></context:property-placeholder>
+    <context:property-placeholder location="application.properties"></context:property-placeholder>
 
     <!-- 2.配置连接池:
            dpcp,半自动
