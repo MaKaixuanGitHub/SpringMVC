@@ -4,12 +4,22 @@ package com.makaixuan.controller;
 
 
 
+import com.makaixuan.pojo.TetsModel1;
+import com.makaixuan.pojo.TetsModel2;
+import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.Logger;
 
 
@@ -63,7 +73,42 @@ public class TestMain {
         Integer intVal = val.intValue();
         System.out.println("intVal===="+intVal);
 
+        TetsModel1 tetsModel1 = new TetsModel1();
+        tetsModel1.setCode("001");
+        tetsModel1.setName("makax");
+
+        TetsModel2 tetsModel2 = new TetsModel2();
+        try {
+            BeanUtils.copyProperties(tetsModel2, tetsModel1);
+        } catch (Exception e) {
+            e.printStackTrace();
+            LOGGER.info("BeanUtils.copyProperties Error occurred");
+        }
+        LOGGER.info("tetsModel2===" + tetsModel2);
+
+        String s = "AAAABCCCCC";
+        System.out.println("AAAABCCCCC ----> " + s.substring(5, 10) + "-" + s.substring(0, 4) + "-" + s.substring(4, 5));
 
 
+        System.out.println("TrimToEmpty1====" + chk(" aaa  "));
+        System.out.println("TrimToEmpty2====" + chk(""));
+        System.out.println("TrimToEmpty3====" + chk(null));
+
+        System.out.println("TrimToEmpty1====" + StringUtils.trimToEmpty(" aaa  "));
+        System.out.println("TrimToEmpty2====" + StringUtils.trimToEmpty(""));
+        System.out.println("TrimToEmpty3====" + StringUtils.trimToEmpty(null));
+
+    }
+    @NotNull
+    @Contract(pure = true)
+    private static String chk(String rec) {
+        String ret = null;
+        if (rec == null) {
+            ret = "";
+        } else {
+            ret = rec.trim();
+        }
+
+        return ret;
     }
 }
